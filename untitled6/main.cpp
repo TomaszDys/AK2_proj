@@ -22,40 +22,53 @@ SDL_Surface* Load_image(const char *file_name)
 	return tmp;
 }
 void changeSthInImage(SDL_Surface *image) {
-	int lenght = image->h * image->pitch;
-	char tab[4000];
-	SDL_Surface *flipped = NULL;
-
+	int lenghtInPixels = image->h * image->pitch;
+	int bitsPerPixel = image->format->BitsPerPixel;
+	int lenghtInBits = lenghtInPixels * bitsPerPixel;
+	SDL_Surface *helper = NULL;
+	int Rmask = image->format->Rmask;
+	int Gmask = image->format->Gmask;
+	int Bmask = image->format->Bmask;
 	//If the image is color keyed
-			flipped = SDL_CreateRGBSurface(SDL_SWSURFACE, 
-			image->w, image->h, image->format->BitsPerPixel, 
-			image->format->Rmask, image->format->Gmask, image->format->Bmask, 0);
-	void *pixels2 = flipped->pixels;
+	helper = SDL_CreateRGBSurface(SDL_SWSURFACE, 
+	image->w, image->h, image->format->BitsPerPixel, 
+	image->format->Rmask, image->format->Gmask, image->format->Bmask, 0);
+	helper->pixels = image->pixels;
+	void *pixels2 = helper->pixels;
 
 	if (SDL_MUSTLOCK(image))
 	{
-		//Lock the surface
 		SDL_LockSurface(image);
 	}
 	_asm {
 		mov eax, pixels2
-		mov ecx, [eax]
-		mov [eax], 999999999999
-		mov [eax+12], 99919999999999
-		mov [eax+123], 99992134999999999
-		mov [eax+121], 999999999999999
-		mov [eax+12121], 999999999999999
-		mov [eax+20], 999999999999999
-		mov [eax+16], 99999999213499
-		mov [eax+24], 999999999999999
+		mov esi, 0
+		wyjasniaj:
+		mov ecx, [eax +esi]
+		mov ebx, ecx
+		mov edx, ecx
+
+		and ecx, Rmask
+		and ebx, Gmask
+		and edx, Bmask
+		// zmieniaj to a zobaczysz magię XD
+		add ecx, 150
+		add ebx, 150
+		add edx, 150
+			
+		add ecx, ebx
+		add edx, ecx
+		mov [eax +esi], edx
+		add esi, 2
+		cmp lenghtInPixels, esi
+		jne wyjasniaj
 		mov pixels2, eax
 	}
 	if (SDL_MUSTLOCK(image))
 	{
-		//Lock the surface
 		SDL_UnlockSurface(image);
 	}
-	SDL_SaveBMP(flipped, "bmp_icon2.png");
+	SDL_SaveBMP(helper, "bmp_icon2.png");
 }
 
 int main(int argc, char *argv[])
