@@ -1,6 +1,8 @@
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
 
+#include <SDL.h>
+#include <SDL_image.h>
 #include <QMainWindow>
 #include <QMessageBox>
 
@@ -15,11 +17,22 @@ class MainWindow : public QMainWindow
 public:
     explicit MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
-
+	QImage MainWindow::createFromSurface(SDL_Surface * surf);
+	
 private slots:
     void on_but_wyj_clicked();
 
     void on_but_start_clicked();
+
+    void on_but_e1_clicked();
+
+    void on_but_e3_clicked();
+
+    void on_but_e2_clicked();
+
+    void on_but_e4_clicked();
+
+    void on_but_e5_clicked();
 
 private:
     Ui::MainWindow *ui;

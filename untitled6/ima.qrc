@@ -3,5 +3,6 @@
         <file>images/bmp_icon.png</file>
         <file>images/tlo1.png</file>
         <file>images/tlo.png</file>
+        <file>bmp_icon2.png</file>
     </qresource>
 </RCC>

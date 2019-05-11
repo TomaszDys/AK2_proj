@@ -178,7 +178,7 @@ QPushButton:pressed { background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2:
 }</string>
     </property>
     <property name="text">
-     <string>Efekt 1</string>
+     <string>Binaryzacja</string>
     </property>
    </widget>
    <widget class="QPushButton" name="but_e2">
@@ -215,7 +215,7 @@ QPushButton:pressed { background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2:
 }</string>
     </property>
     <property name="text">
-     <string>Efekt 2</string>
+     <string>Negatyw</string>
     </property>
    </widget>
    <widget class="QPushButton" name="but_e3">
@@ -252,7 +252,7 @@ QPushButton:pressed { background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2:
 }</string>
     </property>
     <property name="text">
-     <string>Efekt 3</string>
+     <string>Rozjaśnienie</string>
     </property>
    </widget>
    <widget class="QPushButton" name="but_e4">
@@ -357,6 +357,95 @@ QPushButton:pressed { background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2:
      <enum>QFrame::Raised</enum>
     </property>
    </widget>
+   <widget class="QLCDNumber" name="asmTimer">
+    <property name="geometry">
+     <rect>
+      <x>400</x>
+      <y>650</y>
+      <width>211</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="smallDecimalPoint">
+     <bool>false</bool>
+    </property>
+    <property name="value" stdset="0">
+     <double>0.000000000000000</double>
+    </property>
+   </widget>
+   <widget class="QLabel" name="asmTimeLabel">
+    <property name="geometry">
+     <rect>
+      <x>180</x>
+      <y>650</y>
+      <width>201</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>OCR A Extended</family>
+      <pointsize>20</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string>Czas ASM</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+    </property>
+   </widget>
+   <widget class="QLabel" name="cTimeLabel">
+    <property name="geometry">
+     <rect>
+      <x>180</x>
+      <y>710</y>
+      <width>201</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>OCR A Extended</family>
+      <pointsize>20</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string>Czas C/C++</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+    </property>
+   </widget>
+   <widget class="QLCDNumber" name="cTimer">
+    <property name="geometry">
+     <rect>
+      <x>400</x>
+      <y>710</y>
+      <width>211</width>
+      <height>41</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QLabel" name="milisecondsLabel">
+    <property name="geometry">
+     <rect>
+      <x>630</x>
+      <y>660</y>
+      <width>55</width>
+      <height>71</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>OCR A Extended</family>
+      <pointsize>26</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string>ms</string>
+    </property>
+   </widget>
    <zorder>frame</zorder>
    <zorder>background</zorder>
    <zorder>podpis</zorder>
@@ -368,6 +457,11 @@ QPushButton:pressed { background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2:
    <zorder>but_e3</zorder>
    <zorder>but_e4</zorder>
    <zorder>but_e5</zorder>
+   <zorder>asmTimer</zorder>
+   <zorder>asmTimeLabel</zorder>
+   <zorder>cTimeLabel</zorder>
+   <zorder>cTimer</zorder>
+   <zorder>milisecondsLabel</zorder>
   </widget>
  </widget>
  <layoutdefault spacing="6" margin="11"/>

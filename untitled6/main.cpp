@@ -51,10 +51,10 @@ void changeSthInImage(SDL_Surface *image) {
 		and ecx, Rmask
 		and ebx, Gmask
 		and edx, Bmask
-		// zmieniaj to a zobaczysz magię XD
+		// zmieniaj to a zobaczysz magie XD
 		add ecx, 150
-		add ebx, 150
-		add edx, 150
+		add ebx, 50
+		add edx, 50
 			
 		add ecx, ebx
 		add edx, ecx

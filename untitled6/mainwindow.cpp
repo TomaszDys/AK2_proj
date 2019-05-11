@@ -38,3 +38,35 @@ void MainWindow::on_but_start_clicked()
     ui->frame->setVisible(true);
     ui->bitmapa->setPixmap(QPixmap(":/images/bmp_icon.png"));
 }
+
+void MainWindow::on_but_e1_clicked()
+{
+    //ui->bitmapa->setPixmap(QPixmap::fromImage(createFromSurface(surface)));
+    ui->cTimer->display(12.32);
+    ui->asmTimer->display(21.42);
+}
+
+void MainWindow::on_but_e2_clicked()
+{
+    ui->cTimer->display(12.32);
+    ui->asmTimer->display(21.42);
+}
+
+void MainWindow::on_but_e3_clicked()
+{
+    ui->cTimer->display(12.32);
+    ui->asmTimer->display(21.42);
+}
+
+void MainWindow::on_but_e4_clicked()
+{
+    ui->cTimer->display(12.5/4.21);
+    ui->asmTimer->display(21.42);
+}
+
+void MainWindow::on_but_e5_clicked()
+{
+    ui->cTimer->display(12.32);
+    ui->asmTimer->display(21.42);
+}
+

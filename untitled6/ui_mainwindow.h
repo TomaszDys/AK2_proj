@@ -13,6 +13,7 @@
 #include <QtGui/QIcon>
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QFrame>
+#include <QtWidgets/QLCDNumber>
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QMainWindow>
 #include <QtWidgets/QPushButton>
@@ -35,6 +36,11 @@ public:
     QPushButton *but_e4;
     QPushButton *but_e5;
     QFrame *frame;
+    QLCDNumber *asmTimer;
+    QLabel *asmTimeLabel;
+    QLabel *cTimeLabel;
+    QLCDNumber *cTimer;
+    QLabel *milisecondsLabel;
 
     void setupUi(QMainWindow *MainWindow)
     {
@@ -204,6 +210,34 @@ public:
 "    padding: 2px;"));
         frame->setFrameShape(QFrame::StyledPanel);
         frame->setFrameShadow(QFrame::Raised);
+        asmTimer = new QLCDNumber(centralWidget);
+        asmTimer->setObjectName(QString::fromUtf8("asmTimer"));
+        asmTimer->setGeometry(QRect(400, 650, 211, 41));
+        asmTimer->setSmallDecimalPoint(false);
+        asmTimer->setProperty("value", QVariant(0.000000000000000));
+        asmTimeLabel = new QLabel(centralWidget);
+        asmTimeLabel->setObjectName(QString::fromUtf8("asmTimeLabel"));
+        asmTimeLabel->setGeometry(QRect(180, 650, 201, 41));
+        QFont font3;
+        font3.setFamily(QString::fromUtf8("OCR A Extended"));
+        font3.setPointSize(20);
+        asmTimeLabel->setFont(font3);
+        asmTimeLabel->setAlignment(Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter);
+        cTimeLabel = new QLabel(centralWidget);
+        cTimeLabel->setObjectName(QString::fromUtf8("cTimeLabel"));
+        cTimeLabel->setGeometry(QRect(180, 710, 201, 41));
+        cTimeLabel->setFont(font3);
+        cTimeLabel->setAlignment(Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter);
+        cTimer = new QLCDNumber(centralWidget);
+        cTimer->setObjectName(QString::fromUtf8("cTimer"));
+        cTimer->setGeometry(QRect(400, 710, 211, 41));
+        milisecondsLabel = new QLabel(centralWidget);
+        milisecondsLabel->setObjectName(QString::fromUtf8("milisecondsLabel"));
+        milisecondsLabel->setGeometry(QRect(630, 660, 55, 71));
+        QFont font4;
+        font4.setFamily(QString::fromUtf8("OCR A Extended"));
+        font4.setPointSize(26);
+        milisecondsLabel->setFont(font4);
         MainWindow->setCentralWidget(centralWidget);
         frame->raise();
         background->raise();
@@ -216,6 +250,11 @@ public:
         but_e3->raise();
         but_e4->raise();
         but_e5->raise();
+        asmTimer->raise();
+        asmTimeLabel->raise();
+        cTimeLabel->raise();
+        cTimer->raise();
+        milisecondsLabel->raise();
 
         retranslateUi(MainWindow);
 
@@ -230,11 +269,14 @@ public:
         but_wyj->setText(QApplication::translate("MainWindow", "Zako\305\204cz", nullptr));
         background->setText(QString());
         bitmapa->setText(QApplication::translate("MainWindow", "Bitmapa", nullptr));
-        but_e1->setText(QApplication::translate("MainWindow", "Efekt 1", nullptr));
-        but_e2->setText(QApplication::translate("MainWindow", "Efekt 2", nullptr));
-        but_e3->setText(QApplication::translate("MainWindow", "Efekt 3", nullptr));
+        but_e1->setText(QApplication::translate("MainWindow", "Binaryzacja", nullptr));
+        but_e2->setText(QApplication::translate("MainWindow", "Negatyw", nullptr));
+        but_e3->setText(QApplication::translate("MainWindow", "Rozja\305\233nienie", nullptr));
         but_e4->setText(QApplication::translate("MainWindow", "Efekt 4", nullptr));
         but_e5->setText(QApplication::translate("MainWindow", "Efekt 5", nullptr));
+        asmTimeLabel->setText(QApplication::translate("MainWindow", "Czas ASM", nullptr));
+        cTimeLabel->setText(QApplication::translate("MainWindow", "Czas C/C++", nullptr));
+        milisecondsLabel->setText(QApplication::translate("MainWindow", "ms", nullptr));
     } // retranslateUi
 
 };
