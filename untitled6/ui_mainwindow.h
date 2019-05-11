@@ -41,6 +41,8 @@ public:
     QLabel *cTimeLabel;
     QLCDNumber *cTimer;
     QLabel *milisecondsLabel;
+    QLabel *xmmTimeLabel;
+    QLCDNumber *xmmTimer;
 
     void setupUi(QMainWindow *MainWindow)
     {
@@ -105,11 +107,11 @@ public:
         background->setGeometry(QRect(0, 0, 1031, 771));
         bitmapa = new QLabel(centralWidget);
         bitmapa->setObjectName(QString::fromUtf8("bitmapa"));
-        bitmapa->setGeometry(QRect(310, 150, 640, 480));
+        bitmapa->setGeometry(QRect(310, 100, 640, 480));
         bitmapa->setStyleSheet(QString::fromUtf8(""));
         but_e1 = new QPushButton(centralWidget);
         but_e1->setObjectName(QString::fromUtf8("but_e1"));
-        but_e1->setGeometry(QRect(30, 220, 186, 41));
+        but_e1->setGeometry(QRect(40, 180, 186, 41));
         but_e1->setFont(font1);
         but_e1->setStyleSheet(QString::fromUtf8("QPushButton {\n"
 "background-color: rgb(180, 180, 180);\n"
@@ -127,7 +129,7 @@ public:
 "}"));
         but_e2 = new QPushButton(centralWidget);
         but_e2->setObjectName(QString::fromUtf8("but_e2"));
-        but_e2->setGeometry(QRect(30, 290, 186, 41));
+        but_e2->setGeometry(QRect(40, 250, 186, 41));
         but_e2->setFont(font1);
         but_e2->setStyleSheet(QString::fromUtf8("QPushButton {\n"
 "background-color: rgb(180, 180, 180);\n"
@@ -145,7 +147,7 @@ public:
 "}"));
         but_e3 = new QPushButton(centralWidget);
         but_e3->setObjectName(QString::fromUtf8("but_e3"));
-        but_e3->setGeometry(QRect(30, 360, 186, 41));
+        but_e3->setGeometry(QRect(40, 320, 186, 41));
         but_e3->setFont(font1);
         but_e3->setStyleSheet(QString::fromUtf8("QPushButton {\n"
 "background-color: rgb(180, 180, 180);\n"
@@ -163,7 +165,7 @@ public:
 "}"));
         but_e4 = new QPushButton(centralWidget);
         but_e4->setObjectName(QString::fromUtf8("but_e4"));
-        but_e4->setGeometry(QRect(30, 430, 186, 41));
+        but_e4->setGeometry(QRect(40, 390, 186, 41));
         but_e4->setFont(font1);
         but_e4->setStyleSheet(QString::fromUtf8("QPushButton {\n"
 "background-color: rgb(180, 180, 180);\n"
@@ -181,7 +183,7 @@ public:
 "}"));
         but_e5 = new QPushButton(centralWidget);
         but_e5->setObjectName(QString::fromUtf8("but_e5"));
-        but_e5->setGeometry(QRect(30, 500, 186, 41));
+        but_e5->setGeometry(QRect(40, 460, 186, 41));
         but_e5->setFont(font1);
         but_e5->setStyleSheet(QString::fromUtf8("QPushButton {\n"
 "background-color: rgb(180, 180, 180);\n"
@@ -199,7 +201,7 @@ public:
 "}"));
         frame = new QFrame(centralWidget);
         frame->setObjectName(QString::fromUtf8("frame"));
-        frame->setGeometry(QRect(10, 200, 231, 361));
+        frame->setGeometry(QRect(20, 160, 231, 361));
         QFont font2;
         font2.setFamily(QString::fromUtf8("8514oem"));
         font2.setBold(true);
@@ -212,7 +214,7 @@ public:
         frame->setFrameShadow(QFrame::Raised);
         asmTimer = new QLCDNumber(centralWidget);
         asmTimer->setObjectName(QString::fromUtf8("asmTimer"));
-        asmTimer->setGeometry(QRect(400, 650, 211, 41));
+        asmTimer->setGeometry(QRect(400, 590, 211, 41));
         asmTimer->setSmallDecimalPoint(false);
         asmTimer->setProperty("value", QVariant(0.000000000000000));
         asmTimeLabel = new QLabel(centralWidget);
@@ -225,22 +227,30 @@ public:
         asmTimeLabel->setAlignment(Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter);
         cTimeLabel = new QLabel(centralWidget);
         cTimeLabel->setObjectName(QString::fromUtf8("cTimeLabel"));
-        cTimeLabel->setGeometry(QRect(180, 710, 201, 41));
+        cTimeLabel->setGeometry(QRect(180, 590, 201, 41));
         cTimeLabel->setFont(font3);
         cTimeLabel->setAlignment(Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter);
         cTimer = new QLCDNumber(centralWidget);
         cTimer->setObjectName(QString::fromUtf8("cTimer"));
-        cTimer->setGeometry(QRect(400, 710, 211, 41));
+        cTimer->setGeometry(QRect(400, 650, 211, 41));
         milisecondsLabel = new QLabel(centralWidget);
         milisecondsLabel->setObjectName(QString::fromUtf8("milisecondsLabel"));
-        milisecondsLabel->setGeometry(QRect(630, 660, 55, 71));
+        milisecondsLabel->setGeometry(QRect(630, 630, 55, 71));
         QFont font4;
         font4.setFamily(QString::fromUtf8("OCR A Extended"));
         font4.setPointSize(26);
         milisecondsLabel->setFont(font4);
+        xmmTimeLabel = new QLabel(centralWidget);
+        xmmTimeLabel->setObjectName(QString::fromUtf8("xmmTimeLabel"));
+        xmmTimeLabel->setGeometry(QRect(180, 710, 201, 41));
+        xmmTimeLabel->setFont(font3);
+        xmmTimeLabel->setAlignment(Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter);
+        xmmTimer = new QLCDNumber(centralWidget);
+        xmmTimer->setObjectName(QString::fromUtf8("xmmTimer"));
+        xmmTimer->setGeometry(QRect(400, 710, 211, 41));
         MainWindow->setCentralWidget(centralWidget);
-        frame->raise();
         background->raise();
+        frame->raise();
         podpis->raise();
         but_start->raise();
         but_wyj->raise();
@@ -255,6 +265,8 @@ public:
         cTimeLabel->raise();
         cTimer->raise();
         milisecondsLabel->raise();
+        xmmTimeLabel->raise();
+        xmmTimer->raise();
 
         retranslateUi(MainWindow);
 
@@ -277,6 +289,7 @@ public:
         asmTimeLabel->setText(QApplication::translate("MainWindow", "Czas ASM", nullptr));
         cTimeLabel->setText(QApplication::translate("MainWindow", "Czas C/C++", nullptr));
         milisecondsLabel->setText(QApplication::translate("MainWindow", "ms", nullptr));
+        xmmTimeLabel->setText(QApplication::translate("MainWindow", "ASM / XMM", nullptr));
     } // retranslateUi
 
 };

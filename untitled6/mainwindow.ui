@@ -132,7 +132,7 @@ QPushButton:pressed { background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2:
     <property name="geometry">
      <rect>
       <x>310</x>
-      <y>150</y>
+      <y>100</y>
       <width>640</width>
       <height>480</height>
      </rect>
@@ -147,8 +147,8 @@ QPushButton:pressed { background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2:
    <widget class="QPushButton" name="but_e1">
     <property name="geometry">
      <rect>
-      <x>30</x>
-      <y>220</y>
+      <x>40</x>
+      <y>180</y>
       <width>186</width>
       <height>41</height>
      </rect>
@@ -184,8 +184,8 @@ QPushButton:pressed { background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2:
    <widget class="QPushButton" name="but_e2">
     <property name="geometry">
      <rect>
-      <x>30</x>
-      <y>290</y>
+      <x>40</x>
+      <y>250</y>
       <width>186</width>
       <height>41</height>
      </rect>
@@ -221,8 +221,8 @@ QPushButton:pressed { background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2:
    <widget class="QPushButton" name="but_e3">
     <property name="geometry">
      <rect>
-      <x>30</x>
-      <y>360</y>
+      <x>40</x>
+      <y>320</y>
       <width>186</width>
       <height>41</height>
      </rect>
@@ -258,8 +258,8 @@ QPushButton:pressed { background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2:
    <widget class="QPushButton" name="but_e4">
     <property name="geometry">
      <rect>
-      <x>30</x>
-      <y>430</y>
+      <x>40</x>
+      <y>390</y>
       <width>186</width>
       <height>41</height>
      </rect>
@@ -295,8 +295,8 @@ QPushButton:pressed { background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2:
    <widget class="QPushButton" name="but_e5">
     <property name="geometry">
      <rect>
-      <x>30</x>
-      <y>500</y>
+      <x>40</x>
+      <y>460</y>
       <width>186</width>
       <height>41</height>
      </rect>
@@ -332,8 +332,8 @@ QPushButton:pressed { background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2:
    <widget class="QFrame" name="frame">
     <property name="geometry">
      <rect>
-      <x>10</x>
-      <y>200</y>
+      <x>20</x>
+      <y>160</y>
       <width>231</width>
       <height>361</height>
      </rect>
@@ -361,7 +361,7 @@ QPushButton:pressed { background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2:
     <property name="geometry">
      <rect>
       <x>400</x>
-      <y>650</y>
+      <y>590</y>
       <width>211</width>
       <height>41</height>
      </rect>
@@ -399,7 +399,7 @@ QPushButton:pressed { background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2:
     <property name="geometry">
      <rect>
       <x>180</x>
-      <y>710</y>
+      <y>590</y>
       <width>201</width>
       <height>41</height>
      </rect>
@@ -421,7 +421,7 @@ QPushButton:pressed { background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2:
     <property name="geometry">
      <rect>
       <x>400</x>
-      <y>710</y>
+      <y>650</y>
       <width>211</width>
       <height>41</height>
      </rect>
@@ -431,7 +431,7 @@ QPushButton:pressed { background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2:
     <property name="geometry">
      <rect>
       <x>630</x>
-      <y>660</y>
+      <y>630</y>
       <width>55</width>
       <height>71</height>
      </rect>
@@ -446,8 +446,40 @@ QPushButton:pressed { background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2:
      <string>ms</string>
     </property>
    </widget>
-   <zorder>frame</zorder>
+   <widget class="QLabel" name="xmmTimeLabel">
+    <property name="geometry">
+     <rect>
+      <x>180</x>
+      <y>710</y>
+      <width>201</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>OCR A Extended</family>
+      <pointsize>20</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string>ASM / XMM</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+    </property>
+   </widget>
+   <widget class="QLCDNumber" name="xmmTimer">
+    <property name="geometry">
+     <rect>
+      <x>400</x>
+      <y>710</y>
+      <width>211</width>
+      <height>41</height>
+     </rect>
+    </property>
+   </widget>
    <zorder>background</zorder>
+   <zorder>frame</zorder>
    <zorder>podpis</zorder>
    <zorder>but_start</zorder>
    <zorder>but_wyj</zorder>
@@ -462,6 +494,8 @@ QPushButton:pressed { background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2:
    <zorder>cTimeLabel</zorder>
    <zorder>cTimer</zorder>
    <zorder>milisecondsLabel</zorder>
+   <zorder>xmmTimeLabel</zorder>
+   <zorder>xmmTimer</zorder>
   </widget>
  </widget>
  <layoutdefault spacing="6" margin="11"/>

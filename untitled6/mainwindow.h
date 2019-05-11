@@ -17,6 +17,8 @@ class MainWindow : public QMainWindow
 public:
     explicit MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
+	SDL_Surface *screen, *image;
+
 	QImage MainWindow::createFromSurface(SDL_Surface * surf);
 	
 private slots:

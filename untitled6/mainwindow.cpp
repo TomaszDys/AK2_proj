@@ -11,13 +11,32 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->but_e3->setVisible(false);
     ui->but_e4->setVisible(false);
     ui->but_e5->setVisible(false);
-    ui->frame->setVisible(true);
+    ui->frame->setVisible(false);
     ui->background->setPixmap(QPixmap(":/images/tlo1.png"));
+}
+
+SDL_Surface* Load_image(const char *file_name)
+{
+	/* Open the image file */
+	SDL_Surface* tmp = IMG_Load(file_name);
+	if (tmp == NULL) {
+		const char* a = SDL_GetError();
+		fprintf(stderr, "Couldn't load %s: %s\n",
+			file_name, SDL_GetError());
+		exit(0);
+	}
+	return tmp;
 }
 
 MainWindow::~MainWindow()
 {
     delete ui;
+}
+
+QImage MainWindow::createFromSurface(SDL_Surface * surf)
+{
+	QImage img(static_cast<uchar*>(surf->pixels), surf->w, surf->h, QImage::Format_RGB32);
+	return img;
 }
 
 void MainWindow::on_but_wyj_clicked()
@@ -41,7 +60,8 @@ void MainWindow::on_but_start_clicked()
 
 void MainWindow::on_but_e1_clicked()
 {
-    //ui->bitmapa->setPixmap(QPixmap::fromImage(createFromSurface(surface)));
+	image = Load_image("bmp_icon.png");
+	ui->bitmapa->setPixmap(QPixmap::fromImage(createFromSurface(image)));
     ui->cTimer->display(12.32);
     ui->asmTimer->display(21.42);
 }
