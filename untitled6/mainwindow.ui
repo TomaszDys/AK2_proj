@@ -143,6 +143,9 @@ QPushButton:pressed { background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2:
     <property name="text">
      <string>Bitmapa</string>
     </property>
+    <property name="scaledContents">
+     <bool>true</bool>
+    </property>
    </widget>
    <widget class="QPushButton" name="but_e1">
     <property name="geometry">

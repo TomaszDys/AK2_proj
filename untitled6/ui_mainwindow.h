@@ -109,6 +109,7 @@ public:
         bitmapa->setObjectName(QString::fromUtf8("bitmapa"));
         bitmapa->setGeometry(QRect(310, 100, 640, 480));
         bitmapa->setStyleSheet(QString::fromUtf8(""));
+        bitmapa->setScaledContents(true);
         but_e1 = new QPushButton(centralWidget);
         but_e1->setObjectName(QString::fromUtf8("but_e1"));
         but_e1->setGeometry(QRect(40, 180, 186, 41));

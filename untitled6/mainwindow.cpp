@@ -1,6 +1,6 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
-
+#include "Includes.h"
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
@@ -35,7 +35,7 @@ MainWindow::~MainWindow()
 
 QImage MainWindow::createFromSurface(SDL_Surface * surf)
 {
-	QImage img(static_cast<uchar*>(surf->pixels), surf->w, surf->h, QImage::Format_RGB32);
+	QImage img(static_cast<uchar*>(surf->pixels), surf->w, surf->h, QImage::Format_RGB888);
 	return img;
 }
 
@@ -60,8 +60,10 @@ void MainWindow::on_but_start_clicked()
 
 void MainWindow::on_but_e1_clicked()
 {
-	image = Load_image("bmp_icon.png");
-	ui->bitmapa->setPixmap(QPixmap::fromImage(createFromSurface(image)));
+	image = Load_image("obraz.jpg");
+	ImagesConventerASM conventer;
+	SDL_Surface* surface = (conventer.EnforceRedImage(image))->image;
+	ui->bitmapa->setPixmap(QPixmap::fromImage(createFromSurface(surface)));
     ui->cTimer->display(12.32);
     ui->asmTimer->display(21.42);
 }
