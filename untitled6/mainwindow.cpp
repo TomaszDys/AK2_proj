@@ -55,17 +55,21 @@ void MainWindow::on_but_start_clicked()
     ui->but_e4->setVisible(true);
     ui->but_e5->setVisible(true);
     ui->frame->setVisible(true);
-    ui->bitmapa->setPixmap(QPixmap(":/images/bmp_icon.png"));
+    ui->bitmapa->setPixmap(QPixmap("obraz.jpg"));
 }
 
 void MainWindow::on_but_e1_clicked()
 {
 	image = Load_image("obraz.jpg");
-	ImagesConventerASM conventer;
-	SDL_Surface* surface = (conventer.EnforceRedImage(image))->image;
+	ImagesConventerASM conventerASM;
+	ImagesConventerCPP conventerCPP;
+	OperationResult* r = (conventerCPP.EnforceRedImage(image));
+	int timeCPP = r->time;
+	SDL_Surface * surface = r->image;
+	int timeASM = (conventerASM.EnforceRedImage(image))->time;
 	ui->bitmapa->setPixmap(QPixmap::fromImage(createFromSurface(surface)));
-    ui->cTimer->display(12.32);
-    ui->asmTimer->display(21.42);
+    ui->cTimer->display(timeCPP);
+    ui->asmTimer->display(timeASM);
 }
 
 void MainWindow::on_but_e2_clicked()

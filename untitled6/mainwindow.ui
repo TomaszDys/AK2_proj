@@ -181,7 +181,7 @@ QPushButton:pressed { background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2:
 }</string>
     </property>
     <property name="text">
-     <string>Binaryzacja</string>
+     <string>Wzmocnienie R</string>
     </property>
    </widget>
    <widget class="QPushButton" name="but_e2">
@@ -292,7 +292,7 @@ QPushButton:pressed { background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2:
 }</string>
     </property>
     <property name="text">
-     <string>Efekt 4</string>
+     <string>Binaryzacja</string>
     </property>
    </widget>
    <widget class="QPushButton" name="but_e5">
@@ -372,6 +372,9 @@ QPushButton:pressed { background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2:
     <property name="smallDecimalPoint">
      <bool>false</bool>
     </property>
+    <property name="digitCount">
+     <number>9</number>
+    </property>
     <property name="value" stdset="0">
      <double>0.000000000000000</double>
     </property>
@@ -429,6 +432,9 @@ QPushButton:pressed { background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2:
       <height>41</height>
      </rect>
     </property>
+    <property name="digitCount">
+     <number>9</number>
+    </property>
    </widget>
    <widget class="QLabel" name="milisecondsLabel">
     <property name="geometry">
@@ -479,6 +485,9 @@ QPushButton:pressed { background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2:
       <width>211</width>
       <height>41</height>
      </rect>
+    </property>
+    <property name="digitCount">
+     <number>9</number>
     </property>
    </widget>
    <zorder>background</zorder>

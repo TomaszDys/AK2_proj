@@ -36,12 +36,8 @@ OperationResult* ImagesConventerASM::EnforceRedImage(SDL_Surface *image) {
 	int Rmask = image->format->Rmask;
 	int Gmask = image->format->Gmask;
 	int Bmask = image->format->Bmask;
-	//If the image is color keyed
-	helper = SDL_CreateRGBSurface(SDL_SWSURFACE,
-		image->w, image->h, image->format->BitsPerPixel,
-		image->format->Rmask, image->format->Gmask, image->format->Bmask, 0);
-	helper->pixels = image->pixels;
-	void *pixels2 = helper->pixels;
+
+	void *pixels2 = image->pixels;
 
 	if (SDL_MUSTLOCK(image))
 	{
@@ -52,15 +48,16 @@ OperationResult* ImagesConventerASM::EnforceRedImage(SDL_Surface *image) {
 		mov eax, pixels2
 		mov esi, 0
 		wyjasniaj:
-		mov ecx, [eax + esi]
+			inc eax
+			inc eax
+			inc eax
+			mov ebx, [eax]
 			// zmieniaj to a zobaczysz magiê XD
-			sub ecx, 120
-
-			mov[eax + esi], ecx
-
+			or ebx, Rmask
+			mov [eax], ebx
 			add esi, 3
 			cmp lenghtInPixels, esi
-			jg wyjasniaj
+			ja wyjasniaj
 	}
 	performanceCountEnd = global.endTimer();
 	tm = performanceCountEnd.QuadPart - performanceCountStart.QuadPart;
@@ -69,10 +66,8 @@ OperationResult* ImagesConventerASM::EnforceRedImage(SDL_Surface *image) {
 		SDL_UnlockSurface(image);
 	}
 	OperationResult * or = new OperationResult();
-	SDL_UnlockSurface(helper);
-	or ->image = helper;
+	or ->image = image;
 	or ->time = tm;
-	SDL_SaveBMP(helper, "bmp_icon2.png");
 	return or ;
 }
 

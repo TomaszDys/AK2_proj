@@ -217,6 +217,7 @@ public:
         asmTimer->setObjectName(QString::fromUtf8("asmTimer"));
         asmTimer->setGeometry(QRect(400, 590, 211, 41));
         asmTimer->setSmallDecimalPoint(false);
+        asmTimer->setDigitCount(9);
         asmTimer->setProperty("value", QVariant(0.000000000000000));
         asmTimeLabel = new QLabel(centralWidget);
         asmTimeLabel->setObjectName(QString::fromUtf8("asmTimeLabel"));
@@ -234,6 +235,7 @@ public:
         cTimer = new QLCDNumber(centralWidget);
         cTimer->setObjectName(QString::fromUtf8("cTimer"));
         cTimer->setGeometry(QRect(400, 650, 211, 41));
+        cTimer->setDigitCount(9);
         milisecondsLabel = new QLabel(centralWidget);
         milisecondsLabel->setObjectName(QString::fromUtf8("milisecondsLabel"));
         milisecondsLabel->setGeometry(QRect(630, 630, 55, 71));
@@ -249,6 +251,7 @@ public:
         xmmTimer = new QLCDNumber(centralWidget);
         xmmTimer->setObjectName(QString::fromUtf8("xmmTimer"));
         xmmTimer->setGeometry(QRect(400, 710, 211, 41));
+        xmmTimer->setDigitCount(9);
         MainWindow->setCentralWidget(centralWidget);
         background->raise();
         frame->raise();
