@@ -285,10 +285,10 @@ public:
         but_wyj->setText(QApplication::translate("MainWindow", "Zako\305\204cz", nullptr));
         background->setText(QString());
         bitmapa->setText(QApplication::translate("MainWindow", "Bitmapa", nullptr));
-        but_e1->setText(QApplication::translate("MainWindow", "Binaryzacja", nullptr));
+        but_e1->setText(QApplication::translate("MainWindow", "Wzmocnienie R", nullptr));
         but_e2->setText(QApplication::translate("MainWindow", "Negatyw", nullptr));
         but_e3->setText(QApplication::translate("MainWindow", "Rozja\305\233nienie", nullptr));
-        but_e4->setText(QApplication::translate("MainWindow", "Efekt 4", nullptr));
+        but_e4->setText(QApplication::translate("MainWindow", "Binaryzacja", nullptr));
         but_e5->setText(QApplication::translate("MainWindow", "Efekt 5", nullptr));
         asmTimeLabel->setText(QApplication::translate("MainWindow", "Czas ASM", nullptr));
         cTimeLabel->setText(QApplication::translate("MainWindow", "Czas C/C++", nullptr));

@@ -67,9 +67,13 @@ void MainWindow::on_but_e1_clicked()
 	int timeCPP = r->time;
 	SDL_Surface * surface = r->image;
 	int timeASM = (conventerASM.EnforceRedImage(image))->time;
+	ImagesConventerASM_XMM conventerASM_XMM;
+	r = (conventerASM_XMM.EnforceRedImage(image));
+	int timeXmm = r->time;
 	ui->bitmapa->setPixmap(QPixmap::fromImage(createFromSurface(surface)));
     ui->cTimer->display(timeCPP);
     ui->asmTimer->display(timeASM);
+	ui->xmmTimer->display(timeXmm);
 }
 
 void MainWindow::on_but_e2_clicked()
