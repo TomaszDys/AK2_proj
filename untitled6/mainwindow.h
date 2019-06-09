@@ -5,6 +5,7 @@
 #include <SDL_image.h>
 #include <QMainWindow>
 #include <QMessageBox>
+#include "Includes.h"
 
 namespace Ui {
 class MainWindow;
@@ -19,7 +20,7 @@ public:
     ~MainWindow();
 	SDL_Surface *screen, *image;
 
-	QImage MainWindow::createFromSurface(SDL_Surface * surf);
+	QImage* MainWindow::createFromSurface(SDL_Surface * surf);
 	
 private slots:
     void on_but_wyj_clicked();
@@ -37,6 +38,9 @@ private slots:
     void on_but_e5_clicked();
 
 private:
+	ImagesConventerASM conventerASM;
+	ImagesConventerCPP conventerCPP;
+	ImagesConventerASM_XMM conventerASM_XMM;
     Ui::MainWindow *ui;
 };
 

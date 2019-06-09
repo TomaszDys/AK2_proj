@@ -33,9 +33,9 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
-QImage MainWindow::createFromSurface(SDL_Surface * surf)
+QImage* MainWindow::createFromSurface(SDL_Surface * surf)
 {
-	QImage img(static_cast<uchar*>(surf->pixels), surf->w, surf->h, QImage::Format_RGB888);
+	QImage* img = new QImage((uchar*)(surf->pixels), surf->w, surf->h, QImage::Format_RGB888);
 	return img;
 }
 
@@ -61,42 +61,93 @@ void MainWindow::on_but_start_clicked()
 void MainWindow::on_but_e1_clicked()
 {
 	image = Load_image("obraz.jpg");
-	ImagesConventerASM conventerASM;
-	ImagesConventerCPP conventerCPP;
-	OperationResult* r = (conventerCPP.EnforceRedImage(image));
-	int timeCPP = r->time;
-	SDL_Surface * surface = r->image;
-	int timeASM = (conventerASM.EnforceRedImage(image))->time;
-	ImagesConventerASM_XMM conventerASM_XMM;
-	r = (conventerASM_XMM.EnforceRedImage(image));
+
+
+	OperationResult* r = (conventerASM_XMM.EnforceRedImage(image));
 	int timeXmm = r->time;
-	ui->bitmapa->setPixmap(QPixmap::fromImage(createFromSurface(surface)));
-    ui->cTimer->display(timeCPP);
+
+	int timeASM = (conventerASM.EnforceRedImage(image))->time;
+	r = (conventerCPP.EnforceRedImage(image));
+	int timeCPP = r->time;
+
+	SDL_Surface * surface = r->image;
+	ui->bitmapa->setPixmap(QPixmap::fromImage(*createFromSurface(surface)));
     ui->asmTimer->display(timeASM);
+    ui->cppTimer->display(timeCPP);
 	ui->xmmTimer->display(timeXmm);
+	delete r;
 }
 
 void MainWindow::on_but_e2_clicked()
 {
-    ui->cTimer->display(12.32);
-    ui->asmTimer->display(21.42);
+	image = Load_image("obraz.jpg");
+
+	OperationResult *r1 = (conventerASM_XMM.Negative(image));
+	int timeXmm = r1->time;
+	image = Load_image("obraz.jpg");
+	OperationResult* r2 = (conventerCPP.Negative(image));
+	int timeCPP = r2->time;
+	image = Load_image("obraz.jpg");
+	OperationResult* r3 = (conventerASM.Negative(image));
+	int timeASM = r3->time;
+	SDL_Surface * surface = r1->image;
+	ui->bitmapa->setPixmap(QPixmap::fromImage(*createFromSurface(surface)));
+	ui->asmTimer->display(timeASM);
+	ui->cppTimer->display(timeCPP);
+	ui->xmmTimer->display(timeXmm);
+	delete r1;
+	delete r2;
+	delete r3;
+
 }
 
 void MainWindow::on_but_e3_clicked()
 {
-    ui->cTimer->display(12.32);
-    ui->asmTimer->display(21.42);
+	image = Load_image("obraz.jpg");
+
+	OperationResult* r2 = (conventerCPP.Brighten(image));
+	int timeCPP = r2->time;
+	image = Load_image("obraz.jpg");
+	OperationResult *r1 = (conventerASM.Brighten(image));
+	int timeASM = r1->time;
+	image = Load_image("obraz.jpg");
+	OperationResult* r3 = (conventerASM_XMM.Brighten(image));
+	int timeXmm = r3->time;
+	SDL_Surface * surface = r3->image;
+	ui->bitmapa->setPixmap(QPixmap::fromImage(*createFromSurface(surface)));
+	ui->asmTimer->display(timeASM);
+	ui->cppTimer->display(timeCPP);
+	ui->xmmTimer->display(timeXmm);
+	delete r1;
+	delete r2;
+	delete r3;
 }
 
 void MainWindow::on_but_e4_clicked()
 {
-    ui->cTimer->display(12.5/4.21);
-    ui->asmTimer->display(21.42);
+	image = Load_image("obraz.jpg");
+
+	OperationResult* r2 = (conventerCPP.BinarizeImage(image));
+	int timeCPP = r2->time;
+	image = Load_image("obraz.jpg");
+	OperationResult *r1 = (conventerASM.BinarizeImage(image));
+	int timeASM = r1->time;
+	image = Load_image("obraz.jpg");
+	OperationResult* r3 = (conventerASM_XMM.BinarizeImage(image));
+	int timeXmm = r3->time;
+	SDL_Surface * surface = r1->image;
+	ui->bitmapa->setPixmap(QPixmap::fromImage(*createFromSurface(surface)));
+	ui->asmTimer->display(timeASM);
+	ui->cppTimer->display(timeCPP);
+	ui->xmmTimer->display(timeXmm);
+	delete r1;
+	delete r2;
+	delete r3;
 }
 
 void MainWindow::on_but_e5_clicked()
 {
-    ui->cTimer->display(12.32);
-    ui->asmTimer->display(21.42);
+    ui->asmTimer->display(12.32);
+    ui->cppTimer->display(21.42);
 }
 
